@@ -31,11 +31,11 @@ BOARD_CUSTOM_BOOTIMG_MK :=  $(DEVICE_TREE)/mkbootimg.mk
 #BOARD_MKBOOTIMG_ARGS += --dt $(BOARD_KERNEL_DT)
 
 # Kernel - From source (comment all if using prebuilt)
-#BOARD_KERNEL_SEPARATED_DT := true without this, reboots into bootloader!
+# BOARD_KERNEL_SEPARATED_DT := true without this, reboots into bootloader!
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_HEADER_ARCH := arm
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8226
-TARGET_KERNEL_CONFIG := kernel3.4.113_afyonltecan4_defconfig
+TARGET_KERNEL_CONFIG := twrp_afyonltetmo_defconfig
 BOARD_KERNEL_SEPARATED_DT := true
 KERNEL_TOOLCHAIN_PREFIX := arm-linux-androideabi-
 
@@ -74,7 +74,9 @@ TW_MTP_DEVICE := "/dev/mtp_usb"
 TW_NO_EXFAT_FUSE := true
 TW_NO_LEGACY_PROPS := true
 TW_NO_REBOOT_BOOTLOADER := true
-TW_THEME := portrait_hdpi
+#TW_THEME := portrait_mdpi
+TARGET_SCREEN_WIDTH := 540
+TARGET_SCREEN_HEIGHT := 960
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
