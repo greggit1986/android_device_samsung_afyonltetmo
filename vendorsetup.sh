@@ -1,2 +1,2 @@
+add_lunch_combo omni_afyonltetmo-userdebug
 add_lunch_combo omni_afyonltetmo-eng
-
