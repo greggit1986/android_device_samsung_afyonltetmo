@@ -1,1 +1,1 @@
-PRODUCT_COPY_FILES += device/samsung/afyonltetmo/twrp.fstab:recovery/root/etc/twrp.fstab
+PRODUCT_COPY_FILES += device/samsung/afyonltetmo/twrp.fstab:recovery/root/system/etc/twrp.fstab
