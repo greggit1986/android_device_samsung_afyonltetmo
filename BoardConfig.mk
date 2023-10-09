@@ -4,6 +4,7 @@ DEVICE_TREE := device/samsung/afyonltetmo
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8226
+
 # Architecture
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -11,9 +12,11 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := cortex-a7
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8226
 TARGET_NO_BOOTLOADER := true
+
 # Kernel
 BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00000000
@@ -44,9 +47,9 @@ TARGET_USERIMAGES_USE_F2FS := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
 BOARD_SUPPRESS_EMMC_WIPE := true
 
-#JJADD
+# Image compression
 BOARD_NEEDS_LZMA_MINIGZIP := true
-BOARD_RAMDISK_USE_XZ := true
+#BOARD_RAMDISK_USE_XZ := true
 LZMA_RAMDISK_TARGETS := recovery
 
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
@@ -76,16 +79,14 @@ TW_CRYPTO_KEY_LOC := "footer"
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
-#BRIGHTNESS CONTROL
+# BRIGHTNESS CONTROL
 TW_DEFAULT_BRIGHTNESS := 167
 TW_MAX_BRIGHTNESS := 255
 
-#BUILD FLAGS
+# BUILD FLAGS
 export LC_ALL := C
 
-#TARGET_RECOVERY_DEVICE_DIRS += device/samsung/afyonltetmo
-
-#JJADD-Debug flags-still not functional, skip
+# ADB LOGCAT SUPPORT-still not functional, drop for now
 #TARGET_USES_LOGD:= true
 #TARGET_EVENT_LOGGIND:= false
 #TW_INCLUDE_LOGCAT := true
