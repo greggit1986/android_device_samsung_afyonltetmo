@@ -16,7 +16,6 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8226
 TARGET_NO_BOOTLOADER := true
 # Kernel
 BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 androidboot.selinux=permissive
-#BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 zcache.enabled=1 zcache.compressor=lz4
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
@@ -28,20 +27,6 @@ BOARD_CUSTOM_BOOTIMG_MK :=  $(DEVICE_TREE)/mkbootimg.mk
 TARGET_PREBUILT_KERNEL := device/samsung/afyonltetmo/kernel
 BOARD_KERNEL_DT := device/samsung/afyonltetmo/dt.img
 BOARD_MKBOOTIMG_ARGS += --dt $(BOARD_KERNEL_DT)
-
-# Kernel - From source (comment all if using prebuilt)
-#TARGET_KERNEL_ARCH := arm
-#TARGET_KERNEL_HEADER_ARCH := arm
-#TARGET_KERNEL_SOURCE := kernel/samsung/msm8226
-#TARGET_KERNEL_CONFIG := twrp_afyonltetmo_defconfig
-#KERNEL_TOOLCHAIN_PREFIX := arm-linux-androideabi-
-
-
-# Partitions
-#BOARD_FLASH_BLOCK_SIZE := 4096
-#BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00A00000
-#BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00A7DEA0
-#BOARD_USERDATAIMAGE_PARTITION_SIZE := 12562643968
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -90,18 +75,20 @@ BOARD_HAS_NO_REAL_SDCARD := true
 #TW_CRYPTO_KEY_LOC := "footer"
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
- #JJADD
+
+#BRIGHTNESS CONTROL
 TW_DEFAULT_BRIGHTNESS := 167
 TW_MAX_BRIGHTNESS := 255
 
+#BUILD FLAGS
 export LC_ALL := C
 
- #TARGET_RECOVERY_DEVICE_DIRS += device/samsung/afyonltetmo
+#TARGET_RECOVERY_DEVICE_DIRS += device/samsung/afyonltetmo
 
- #JJADD-Debug flags
-TARGET_USES_LOGD:= true
+#JJADD-Debug flags-still not functional, skip
+#TARGET_USES_LOGD:= true
 #TARGET_EVENT_LOGGIND:= false
-TW_INCLUDE_LOGCAT := true
+#TW_INCLUDE_LOGCAT := true
 #TARGET_RECOVERY_DEVICE_MODULES += debuggerd
 #TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT_EXECUTABLES)/debuggerd
 
@@ -113,10 +100,9 @@ TW_NO_REBOOT_RECOVERY := true
 #TW_NO_BATT_PERCENT := true
 # Same as above, for CPU Temperature
 #TW_NO_CPU_TEMP := true
+
 # Remove MTP support
 TW_USE_TOOLBOX := true
-
-
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
