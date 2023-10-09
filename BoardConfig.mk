@@ -103,7 +103,7 @@ TW_NO_REBOOT_RECOVERY := true
 #TW_NO_CPU_TEMP := true
 
 # Remove MTP support
-TW_USE_TOOLBOX := true
+#TW_USE_TOOLBOX := true
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
