@@ -29,10 +29,18 @@ BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02000000 -
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK :=  $(DEVICE_TREE)/mkbootimg.mk
 
-# Kernel-prebuilt
-TARGET_PREBUILT_KERNEL := device/samsung/afyonltetmo/kernel
-BOARD_KERNEL_DT := device/samsung/afyonltetmo/dt.img
-BOARD_MKBOOTIMG_ARGS += --dt $(BOARD_KERNEL_DT)
+# Kernel-prebuilt (comment all if using source)
+#TARGET_PREBUILT_KERNEL := device/samsung/afyonltetmo/kernel
+#BOARD_KERNEL_DT := device/samsung/afyonltetmo/dt.img
+#BOARD_MKBOOTIMG_ARGS += --dt $(BOARD_KERNEL_DT)
+
+# Kernel - From source (comment all if using prebuilt)
+TARGET_KERNEL_ARCH := arm
+TARGET_KERNEL_HEADER_ARCH := arm
+TARGET_KERNEL_SOURCE := kernel/samsung/msm8226
+TARGET_KERNEL_CONFIG := twrp_afyonltetmo_defconfig
+BOARD_KERNEL_SEPARATED_DT := true
+KERNEL_TOOLCHAIN_PREFIX := arm-linux-androideabi-
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
