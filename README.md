@@ -1,7 +1,10 @@
 ## TWRP device tree for T-Mobile and MetroPCS Samsung Galaxy Avant
 ## afyonltetmo
 
-Add `.repo/local_manifests/afyonltetmo.xml`:
+1) Initialize your local repository using the OMNIROM trees
+repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-5.1
+
+2) Add `.repo/local_manifests/afyonltetmo.xml`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -12,15 +15,14 @@ Add `.repo/local_manifests/afyonltetmo.xml`:
 </manifest>
 ```
 
-Then run `repo sync` to check it out.
+3) Then to sync up:
+repo sync
 
-To build:
+4) To build, run:
 
-```sh
 . build/envsetup.sh
-lunch omni_afyonltetmo
+lunch omni_afyonltetmo-eng
 mka recoveryimage
-```
-```Copy and paste to the command line if necessary to fix locale and missing dependencies  errors: 
+
+```Copy and paste to the command line if necessary to force flex to use standard locale instead of your locale configuration: 
 export LC_ALL=C
-export ALLOW_MISSING_DEPENDENCIES=true
