@@ -2,6 +2,9 @@ MALLOC_IMPL := dlmalloc
 
 DEVICE_TREE := device/samsung/afyonltetmo
 
+# For building with minimal manifest
+ALLOW_MISSING_DEPENDENCIES := true
+
 # Platform
 TARGET_BOARD_PLATFORM := msm8226
 
